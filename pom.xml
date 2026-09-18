@@ -78,6 +78,7 @@
                 <version>3.1.2</version>
                 <configuration>
                     <argLine>
+                        -Dfile.encoding=${project.build.sourceEncoding}
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
                 </configuration>
