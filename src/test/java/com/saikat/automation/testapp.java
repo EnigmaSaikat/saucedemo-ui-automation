@@ -24,6 +24,9 @@ public class testapp {
     private WebDriver driver;
     private AllureWebDriverBiDi bidi;
 
+//    private static  ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+//    private static ThreadLocal<AllureWebDriverBiDi> bidi = new ThreadLocal<>();
+
     @BeforeTest
     public void setUp() {
 
