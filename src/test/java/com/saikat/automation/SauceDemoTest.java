@@ -1,7 +1,7 @@
 package com.saikat.automation;
 
 
-import io.qameta.allure.AllureId;
+import io.qameta.allure.*;
 import io.qameta.allure.seleniumbidi.AllureWebDriverBiDi;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,9 +10,11 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import static io.qameta.allure.SeverityLevel.CRITICAL;
+
 /**
  * ============================================================================
- * Class Name : testapp
+ * Class Name : SauceDemoTest
  * Description:
  *
  * @author Saikat Das
@@ -20,12 +22,9 @@ import org.testng.annotations.*;
  * @since 9/18/2026
  * ============================================================================
  */
-public class testapp {
+public class SauceDemoTest {
     private WebDriver driver;
     private AllureWebDriverBiDi bidi;
-
-//    private static  ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-//    private static ThreadLocal<AllureWebDriverBiDi> bidi = new ThreadLocal<>();
 
     @BeforeTest
     public void setUp() {
@@ -43,10 +42,15 @@ public class testapp {
     }
 
     @Test
-    @AllureId("111")
+    @Description("This is the test for checking the title of sauce demo application")
+    @Severity(CRITICAL)
+    @Owner("John Doe")
+    @Link(name = "Website", url = "https://www.saucedemo.com/")
+    @Issue("AUTH-123")
+    @TmsLink("TMS-456")
     public void loginPageTitleIsCorrect() {
         try {
-            Assert.assertEquals(driver.getTitle(), "Swag Labs");
+            Assert.assertEquals(driver.getTitle(), "Swagll Labs");
         }finally {
             bidi.close();
         }
@@ -54,7 +58,12 @@ public class testapp {
 
 
     @Test
-    @AllureId("112")
+    @Description("This is the test for login with the standerd user ")
+    @Severity(CRITICAL)
+    @Owner("John Doe")
+    @Link(name = "Website", url = "https://www.saucedemo.com/")
+    @Issue("AUTH-124")
+    @TmsLink("TMS-457")
     public void someOtherDistinctBehavior() {
         try {
             driver.findElement(By.id("user-name")).sendKeys("standard_user");

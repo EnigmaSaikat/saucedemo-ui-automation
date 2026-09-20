@@ -1,40 +1,73 @@
+# Java and Maven build output
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-.kotlin
+*.class
+*.hprof
+hs_err_pid*
+replay_pid*
 
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
+# Maven generated files and optional project-local dependency cache
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.flattened-pom.xml
+/.mvn/timing.properties
+/.m2/
+
+# IntelliJ IDEA
+.idea/
 *.iml
 *.ipr
-.idea
+*.iws
+out/
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# TestNG generated reports
+test-output/
+/testng-failed.xml
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+# Allure generated reports, runtime cache and local history
+allure-results/
+allure-report/
+.allure/
+.allure-history/
+/history.jsonl
 
-### VS Code ###
-.vscode/
+# Allure 3 CLI dependencies, if installed locally
+node_modules/
 
-### Mac OS ###
+# Generated Selenium artifacts (project root only)
+/screenshots/
+/videos/
+/downloads/
+/reports/
+/test-artifacts/
+/logs/
+/*.log
+/*.log.*
+/.cache/selenium/
+
+# Local environment files and personal overrides
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+*.local.properties
+/secrets/
+/settings.xml
+/settings-security.xml
+
+# OS and editor temporary files
 .DS_Store
+Thumbs.db
+[Dd]esktop.ini
+*.swp
+*.swo
+*~
+
+# Keep Maven Wrapper files, pom.xml, testng.xml, allure.properties,
+# allurerc.*, .editorconfig and non-secret test resources trackable.
+# No blanket *.jar, *.json, *.xml or *.png exclusions.
