@@ -50,7 +50,7 @@ public class SauceDemoTest {
     @TmsLink("TMS-456")
     public void loginPageTitleIsCorrect() {
         try {
-            Assert.assertEquals(driver.getTitle(), "Swagll Labs");
+            Assert.assertEquals(driver.getTitle(), "Swag Labs");
         }finally {
             bidi.close();
         }
@@ -76,7 +76,7 @@ public class SauceDemoTest {
 
     @AfterTest()
     public void tearDown() {
-            if (driver != null) driver.quit();
+        if (driver != null) driver.quit();
     }
 
 }
