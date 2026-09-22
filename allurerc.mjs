@@ -1,35 +1,44 @@
 import { defineConfig } from "allure";
 
-export default defineConfig ({
+export default {
     name: "Saucedemo UI Automation",
-    output: "./target/allure-results",
+    output: "./target/allure-report",
     historyPath: "./history.jsonl",
-    port: 3000,
-    open: true,
+    open: false,
+    port: "3000",
+
     environments: {
         Windows: {
-            matcher: ({ labels }) =>
-                labels.find(({ name, value }) => name === "Operating System" && value === "Windows"),
+            matcher: ({ labels = [] }) =>
+                labels.some(({ name, value }) =>
+                    name === "Operating System" && value === "Windows"
+                ),
             variables: {
-                "OS": "Windows 11",
-                "Architecture": "x64"
+                OS: "Windows 11",
+                Architecture: "x64"
             }
         },
+
         macOS: {
-            matcher: ({ labels }) =>
-                labels.find(({ name, value }) => name === "Operating System" && value === "macOS"),
+            matcher: ({ labels = [] }) =>
+                labels.some(({ name, value }) =>
+                    name === "Operating System" && value === "macOS"
+                ),
             variables: {
-                "OS": "macOS Sonoma",
-                "Architecture": "arm64"
+                OS: "macOS Sonoma",
+                Architecture: "arm64"
             }
         },
+
         Linux: {
-            matcher: ({ labels }) =>
-                labels.find(({ name, value }) => name === "Operating System" && value === "Linux"),
+            matcher: ({ labels = [] }) =>
+                labels.some(({ name, value }) =>
+                    name === "Operating System" && value === "Linux"
+                ),
             variables: {
-                "OS": "Ubuntu 24.04",
-                "Architecture": "x64"
+                OS: "Ubuntu 24.04",
+                Architecture: "x64"
             }
         }
     }
-})
+};
