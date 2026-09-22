@@ -23,10 +23,10 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
  * ============================================================================
  */
 public class SauceDemoTest {
-    private WebDriver driver;
-    private AllureWebDriverBiDi bidi;
+    protected WebDriver driver;
+    protected AllureWebDriverBiDi bidi;
 
-    @BeforeTest
+    @BeforeClass
     public void setUp() {
 
         FirefoxOptions firefoxOptions = new FirefoxOptions().enableBiDi();
@@ -41,42 +41,11 @@ public class SauceDemoTest {
         driver.get("https://www.saucedemo.com/");
     }
 
-    @Test
-    @Description("This is the test for checking the title of sauce demo application")
-    @Severity(CRITICAL)
-    @Owner("John Doe")
-    @Link(name = "Website", url = "https://www.saucedemo.com/")
-    @Issue("AUTH-123")
-    @TmsLink("TMS-456")
-    public void loginPageTitleIsCorrect() {
-        try {
-            Assert.assertEquals(driver.getTitle(), "Swag Labs");
-        }finally {
-            bidi.close();
-        }
-    }
-
-
-    @Test
-    @Description("This is the test for login with the standerd user ")
-    @Severity(CRITICAL)
-    @Owner("John Doe")
-    @Link(name = "Website", url = "https://www.saucedemo.com/")
-    @Issue("AUTH-124")
-    @TmsLink("TMS-457")
-    public void someOtherDistinctBehavior() {
-        try {
-            driver.findElement(By.id("user-name")).sendKeys("standard_user");
-            driver.findElement(By.id("password")).sendKeys("secret_sauce");
-            driver.findElement(By.id("login-button")).click();
-        }finally {
-            bidi.close();
-        }
-    }
-
-    @AfterTest()
+    @AfterClass
     public void tearDown() {
-        if (driver != null) driver.quit();
+        if (driver != null){
+            driver.quit();
+        }
     }
 
 }
