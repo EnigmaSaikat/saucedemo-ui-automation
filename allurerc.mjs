@@ -4,7 +4,7 @@ export default {
     name: "Saucedemo UI Automation",
     output: "./target/allure-report",
     historyPath: "./history.jsonl",
-    open: false,
+    open: true,
     port: "3000",
 
     environments: {
